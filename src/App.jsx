@@ -1,15 +1,16 @@
+
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 
 import Header from './components/Header.jsx'
 import Card from './components/Card.jsx'
 import TodoContainer from './components/TodoContainer.jsx'
-import Login from './components/Login.jsx'
-import Signup from './components/Signup.jsx'
+import Login from './components/login.jsx'
+import Signup from './components/signup.jsx'
 
 function Actodo() {
     const location = useLocation()
-    const username = location.state?.username || "User"
+    const username = location.state?.username || 'User'
 
     return (
         <div className="bg-black min-h-screen p-16">
@@ -33,8 +34,8 @@ function Actodo() {
 }
 
 function App() {
-    const [users, setusers] = useState([
-        { username: "jeff", password: "123" }
+    const [users, setUsers] = useState([
+        { username: 'jeff', password: '123' }
     ])
 
     return (
@@ -48,11 +49,14 @@ function App() {
                 <Route
                     path="/signup"
                     element={
-                        <Signup users={users} setusers={setusers} />
+                        <Signup users={users} setusers={setUsers} />
                     }
                 />
 
-                <Route path="/actodo" element={<Actodo />} />
+                <Route
+                    path="/actodo"
+                    element={<Actodo />}
+                />
             </Routes>
         </BrowserRouter>
     )
